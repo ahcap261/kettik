@@ -1,0 +1,43 @@
+<%- include('header') %>
+
+<div class="container-fluid">
+    <form method="POST" onsubmit="return doPost(this);">
+        <div class="form-group">
+            <label>Title</label>
+            <input name="title" class="form-control" placeholder="Title" />
+        </div>
+        <div class="form-group">
+            <label>Content</label>
+            <textarea name="content" class="form-control" placeholder="Content"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Tag</label>
+            <textarea name="tag" class="form-control" placeholder="Tag"></textarea>
+        </div>
+        <div class="form-group">
+            <label>Image link</label>
+            <textarea name="img" class="form-control" enctype="multipart/form-data" placeholder="Image link"></textarea>
+        </div>
+        <input type="submit" class="btn btn-info" value="Post" />
+    </form>
+</div>
+
+<script>
+    function doPost(form) {
+        $.ajax({
+            url: '/do-post',
+            method: 'POST',
+            data: {
+                title: form.title.value,
+                content: form.content.value,
+                img: form.img.value,
+                tag: form.tag.value
+            },
+            success: function (response) {
+                alert(response);
+            }
+        });
+        return false;
+    }
+</script>
+

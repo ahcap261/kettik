@@ -1,0 +1,59 @@
+<!-- include header -->
+<%- include('header') %>
+<!-- /include header -->
+
+<link href="/static/add_us/style.css" rel="stylesheet">
+
+<main id="site-main">
+  <form method="POST" onsubmit="return doAddUser(this);">
+    <div class="new_user">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="hidden" name="id" value="">
+        <input type="text" name="userName" value="" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" value="" placeholder="example@gmail.com" required>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" id="password" value="" name="password" required>
+      </div>
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" id="age" value="" name="age" required>
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" id="city" value="" name="city" required>
+      </div>    
+    </div>
+    
+    <div class="form-group text-center">
+      <button type="submit" class="btn btn btn-info" name="save-btn">Save</button>
+      <button type="reset" class="btn btn btn-info" name="reset-btn">Reset</button>
+    </div>
+    
+  </form>
+    
+  <script>
+    function doAddUser(form) {
+      $.ajax({
+        url: '/do-add-user',
+        method: 'POST',
+        data: {
+          userName: form.userName.value, 
+          email: form.email.value, 
+          password: form.password.value,
+          age: form.age.value,
+          city: form.city.value
+        },
+        success: function(response) {
+          alert(response);
+        }
+      });
+      return false;
+    }
+  </script>
+</main>

@@ -1,0 +1,57 @@
+<%- include ('header2') %>
+
+<body>
+  <div class="container-scroller">
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <div class="container">
+          <div class="row" data-aos="fade-up">
+            <div class="col-xl-4 stretch-card grid-margin">
+              <div class="card bg-dark text-white"></div>
+            </div>
+          </div>
+          <div class="row" data-aos="fade-up">
+            <div class="col-lg-3 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h1>Current weather in Astana:</h1>
+                  <p>Temperature: <%= weather.temperature %> &deg;C</p>
+                  <img src="<%= weather.icon %>" alt="<%= weather.description %>">
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-9 stretch-card grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <% posts.forEach(function(post){ %>
+                  <div class="row">
+                    <div class="col-sm-4 grid-margin">
+                      <div class="position-relative">
+                        <div>
+                          <img src="<%= post.img %>" alt="thumb" class="img-fluid" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-8  grid-margin">
+                      <h2 class="mb-2 font-weight-600">
+                        <%= post.title %>
+                      </h2>
+                      <h2 class="mb-2 font-weight-600">
+                        <%= post.tag %>
+                      </h2>
+                      <a class="btn btn-primary" href="posts/<%= post._id %>">Read more →</a>
+                    </div>
+                  </div>
+                  <% }) %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" data-aos="fade-up"></div>
+  </div>
+</body>
+
+<%- include ('footer2') %>

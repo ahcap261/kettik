@@ -1,0 +1,18 @@
+# ignore node_modules directory
+node_modules/
+
+# ignore logs
+logs/
+*.log
+
+# ignore environment variables file
+.env
+
+# ignore IDE files
+.vscode/
+.idea/
+
+# ignore compiled output
+dist/
+build/
+out/

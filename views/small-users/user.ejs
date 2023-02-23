@@ -1,0 +1,13 @@
+<%- include('header2') %>
+
+<div class="container mt-5">
+  <h1 class="fw-bolder mb-1"><%= posts.title %></h1>
+
+  <figure class="mb-4">
+    <img class="img-fluid rounded" src="<%= posts.img %>" alt="..." width="500" height="200" />
+  </figure>
+
+  <section class="mb-5">
+    <%= posts.content %>
+  </section>
+<%- include('footer2') %>
